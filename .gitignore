@@ -1,0 +1,19 @@
+# Dataset (download from Zenodo, see README)
+Top_Quark_Tagging_dataset/
+*.h5
+
+# Figures produced by the notebooks
+*.png
+!figures/**/*.png
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.env
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
