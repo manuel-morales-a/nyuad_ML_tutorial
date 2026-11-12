@@ -15,11 +15,8 @@ The starting point is `example_top_dataset.ipynb`, adapted from [SimpleTopTagger
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-# 2. Dataset (~1.7 GB in total) from Zenodo
-mkdir -p Top_Quark_Tagging_dataset
-for f in train val test; do
-  curl -L -o Top_Quark_Tagging_dataset/$f.h5 https://zenodo.org/records/2603256/files/$f.h5
-done
+# 2. Dataset (~1.7 GB in total) from Zenodo; the notebook also downloads it if missing
+./download_data.sh
 
 # 3. Launch
 jupyter lab example_top_dataset.ipynb
@@ -27,11 +24,13 @@ jupyter lab example_top_dataset.ipynb
 
 `saved_model.pth` holds pre-trained weights for the Particle Flow Network. The notebook loads them if present, so training resumes from them instead of starting from scratch.
 
-The notebook loads 500k training jets into memory (about 1.5 GB as a DataFrame), so a machine with 8 GB of RAM or more is recommended.
+The notebook loads 500k training jets, which needs roughly 6-7 GB of RAM. Lower `N_TRAIN` / `N_VAL` in the notebook if you have less.
 
-## Running on Google Colab
+## Running on Google Colab (recommended)
 
-Coming soon.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manuel-morales-a/nyuad_ML_tutorial/blob/main/example_top_dataset.ipynb)
+
+Click the badge, then select a GPU under *Runtime → Change runtime type* and run the cells from top to bottom. The notebook installs what Colab is missing, downloads the dataset from Zenodo and fetches the pre-trained weights by itself.
 
 ## Repository layout
 
@@ -39,7 +38,8 @@ Coming soon.
 |---|---|
 | `example_top_dataset.ipynb` | Main tutorial notebook |
 | `saved_model.pth` | Pre-trained Particle Flow Network weights |
-| `requirements.txt` | Python dependencies |
+| `requirements.txt` | Python dependencies (for local runs) |
+| `download_data.sh` | Resumable dataset download (for local runs) |
 
 ## License
 
