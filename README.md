@@ -30,7 +30,9 @@ The notebook loads 500k training jets, which needs roughly 6-7 GB of RAM. Lower 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manuel-morales-a/nyuad_ML_tutorial/blob/main/example_top_dataset.ipynb)
 
-Click the badge, then select a GPU under *Runtime → Change runtime type* and run the cells from top to bottom. The notebook installs what Colab is missing, downloads the dataset from Zenodo and fetches the pre-trained weights by itself.
+Click the badge, then select a GPU under *Runtime → Change runtime type* and run the cells from top to bottom. The notebook installs what Colab is missing, downloads the dataset and fetches the pre-trained weights by itself.
+
+By default it downloads a half-size copy of the dataset (600k train / 200k val / 200k test jets) from Google Drive, because Zenodo can be very slow. The copy is made with `scripts/make_half_dataset.py`; if the Drive download fails, the notebook falls back to the full dataset on Zenodo.
 
 ## Repository layout
 
@@ -39,7 +41,8 @@ Click the badge, then select a GPU under *Runtime → Change runtime type* and r
 | `example_top_dataset.ipynb` | Main tutorial notebook |
 | `saved_model.pth` | Pre-trained Particle Flow Network weights |
 | `requirements.txt` | Python dependencies (for local runs) |
-| `download_data.sh` | Resumable dataset download (for local runs) |
+| `download_data.sh` | Resumable download of the full dataset from Zenodo (for local runs) |
+| `scripts/make_half_dataset.py` | Builds the half-size dataset copy hosted on Google Drive |
 
 ## License
 
