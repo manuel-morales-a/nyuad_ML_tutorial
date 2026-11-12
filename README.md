@@ -2,6 +2,13 @@
 
 A practical introduction to machine learning for science, using jet tagging at the LHC as the running example.
 
+The tutorial is built around four points:
+
+1. **Know your data and your physics** before training anything.
+2. **Always have a baseline and the right metrics**, and keep training, validation and test data separate.
+3. **Checking the output is our job**, whether it comes from a neural network or from an AI agent writing our code.
+4. **Know the failure modes**: overfitting, leakage, poor inputs, silent bugs, flattering metrics.
+
 The starting point is `example_top_dataset.ipynb`, adapted from [SimpleTopTagger](https://github.com/manuel-morales-a/SimpleTopTagger) (prepared for the MCNET24 summer school). It walks through:
 
 1. **Data exploration**: the public [Top Quark Tagging Reference Dataset](https://zenodo.org/records/2603256), jet constituents, and physics-motivated observables (jet mass, multiplicity, ⟨p_T⟩).
