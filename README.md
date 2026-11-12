@@ -24,7 +24,7 @@ jupyter lab example_top_dataset.ipynb
 
 `saved_model.pth` holds pre-trained weights for the Particle Flow Network. The notebook loads them if present, so training resumes from them instead of starting from scratch.
 
-The notebook loads 500k training jets, which needs roughly 6-7 GB of RAM. Lower `N_TRAIN` / `N_VAL` in the notebook if you have less.
+The notebook loads 300k training jets by default, which needs roughly 4 GB of RAM. Lower `N_TRAIN` / `N_VAL` in the notebook if you have less.
 
 ## Running on Google Colab (recommended)
 
@@ -32,7 +32,7 @@ The notebook loads 500k training jets, which needs roughly 6-7 GB of RAM. Lower 
 
 Click the badge, then select a GPU under *Runtime → Change runtime type* and run the cells from top to bottom. The notebook installs what Colab is missing, downloads the dataset and fetches the pre-trained weights by itself.
 
-By default it downloads a half-size copy of the dataset (600k train / 200k val / 200k test jets) from Google Drive, because Zenodo can be very slow. The copy is made with `scripts/make_reduced_dataset.py`; if the Drive download fails, the notebook falls back to the full dataset on Zenodo.
+By default it downloads a quarter-size copy of the dataset (300k train / 100k val / 100k test jets, ~380 MB) from Google Drive, because Zenodo can be very slow. The copy is made with `scripts/make_reduced_dataset.py --fraction 0.25`; if the Drive download fails, the notebook falls back to the full dataset on Zenodo.
 
 ## Repository layout
 
