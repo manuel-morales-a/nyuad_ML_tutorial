@@ -14,6 +14,7 @@ The starting point is `example_top_dataset.ipynb`, adapted from [SimpleTopTagger
 1. **Data exploration**: the public [Top Quark Tagging Reference Dataset](https://zenodo.org/records/2603256), jet constituents, and physics-motivated observables (jet mass, multiplicity, ⟨p_T⟩).
 2. **A baseline classifier**: logistic regression on two high-level features, with accuracy, ROC/AUC, confusion matrices and decision boundaries.
 3. **A Deep Sets / Particle Flow Network** in PyTorch that acts directly on the jet constituents, plus a first look at its latent space.
+4. **Breaking things on purpose**: four one-parameter experiments showing failure modes that raise no errors (a learning rate that kills training, a poor input representation, overfitting, and accuracy on imbalanced data).
 
 ## Running locally
 
