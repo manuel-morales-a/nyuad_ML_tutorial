@@ -27,7 +27,7 @@ pip install -r requirements.txt
 jupyter lab example_top_dataset.ipynb
 ```
 
-To work with the full dataset from Zenodo (~1.7 GB) instead, run `./download_data.sh` before opening the notebook.
+To work with the full dataset from Zenodo (about 1.7 GB) instead, run `./download_data.sh` before opening the notebook.
 
 The notebook loads 300k training jets by default, which needs roughly 4 GB of RAM. Lower `N_TRAIN` / `N_VAL` in the notebook if you have less.
 
@@ -37,7 +37,7 @@ The notebook loads 300k training jets by default, which needs roughly 4 GB of RA
 
 Click the badge, then select a GPU under *Runtime → Change runtime type* and run the cells from top to bottom. The notebook installs what Colab is missing, downloads the dataset and fetches the pre-trained weights by itself, so a full run takes only a few minutes.
 
-By default it downloads a quarter-size copy of the dataset (300k train / 100k val / 100k test jets, ~380 MB) from Google Drive, because Zenodo can be very slow. The copy is made with `scripts/make_reduced_dataset.py --fraction 0.25`; if the Drive download fails, the notebook falls back to the full dataset on Zenodo.
+By default it downloads a quarter-size copy of the dataset (300k train / 100k val / 100k test jets, about 380 MB) from Google Drive, because Zenodo can be very slow. The copy is made with `scripts/make_reduced_dataset.py --fraction 0.25`; if the Drive download fails, the notebook falls back to the full dataset on Zenodo.
 
 ## Pre-trained network
 
