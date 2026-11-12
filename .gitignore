@@ -17,3 +17,11 @@ __pycache__/
 .DS_Store
 .vscode/
 .idea/
+
+# Outputs of scripts/train_pretrained.py and of training in the notebook
+/train_pretrained_executed.ipynb
+/pfn_trained*.pth
+/pfn_trained*_history.json
+/pfn_pretrained.pth
+/pfn_history.json
+*.part

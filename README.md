@@ -15,14 +15,11 @@ The starting point is `example_top_dataset.ipynb`, adapted from [SimpleTopTagger
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-# 2. Dataset (~1.7 GB in total) from Zenodo; the notebook also downloads it if missing
-./download_data.sh
-
-# 3. Launch
+# 2. Launch; the notebook downloads the (quarter-size) dataset by itself
 jupyter lab example_top_dataset.ipynb
 ```
 
-`saved_model.pth` holds pre-trained weights for the Particle Flow Network. The notebook loads them if present, so training resumes from them instead of starting from scratch.
+To work with the full dataset from Zenodo (~1.7 GB) instead, run `./download_data.sh` before opening the notebook.
 
 The notebook loads 300k training jets by default, which needs roughly 4 GB of RAM. Lower `N_TRAIN` / `N_VAL` in the notebook if you have less.
 
@@ -30,19 +27,30 @@ The notebook loads 300k training jets by default, which needs roughly 4 GB of RA
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manuel-morales-a/nyuad_ML_tutorial/blob/main/example_top_dataset.ipynb)
 
-Click the badge, then select a GPU under *Runtime → Change runtime type* and run the cells from top to bottom. The notebook installs what Colab is missing, downloads the dataset and fetches the pre-trained weights by itself.
+Click the badge, then select a GPU under *Runtime → Change runtime type* and run the cells from top to bottom. The notebook installs what Colab is missing, downloads the dataset and fetches the pre-trained weights by itself, so a full run takes only a few minutes.
 
 By default it downloads a quarter-size copy of the dataset (300k train / 100k val / 100k test jets, ~380 MB) from Google Drive, because Zenodo can be very slow. The copy is made with `scripts/make_reduced_dataset.py --fraction 0.25`; if the Drive download fails, the notebook falls back to the full dataset on Zenodo.
+
+## Pre-trained network
+
+Training the Particle Flow Network takes a while, so by default the notebook loads weights trained beforehand (`models/pfn_pretrained.pth`) together with their training history (`models/pfn_history.json`), which it uses to plot the learning curves. Set `TRAIN_FROM_SCRATCH = True` in the notebook to train the network yourself.
+
+The pre-trained weights are produced by running the notebook itself with `TRAIN_FROM_SCRATCH = True`:
+
+```bash
+python scripts/train_pretrained.py
+```
 
 ## Repository layout
 
 | File | Purpose |
 |---|---|
 | `example_top_dataset.ipynb` | Main tutorial notebook |
-| `saved_model.pth` | Pre-trained Particle Flow Network weights |
+| `models/` | Pre-trained Particle Flow Network weights and training history |
 | `requirements.txt` | Python dependencies (for local runs) |
 | `download_data.sh` | Resumable download of the full dataset from Zenodo (for local runs) |
 | `scripts/make_reduced_dataset.py` | Builds the reduced (half / quarter) dataset copies hosted on Google Drive |
+| `scripts/train_pretrained.py` | Re-trains the pre-trained network by running the notebook |
 
 ## License
 
