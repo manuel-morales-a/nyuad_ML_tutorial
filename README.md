@@ -9,7 +9,7 @@ The tutorial is built around four points:
 3. **Checking the output is our job**, whether it comes from a neural network or from an AI agent writing our code.
 4. **Know the failure modes**: overfitting, leakage, poor inputs, silent bugs, flattering metrics.
 
-The starting point is `example_top_dataset.ipynb`, adapted from [SimpleTopTagger](https://github.com/manuel-morales-a/SimpleTopTagger) (prepared for the MCNET24 summer school). It walks through:
+The starting point is `example_top_dataset.ipynb`, adapted from [SimpleTopTagger](https://github.com/manuel-morales-a/SimpleTopTagger) (prepared by M. Szewc for the MCNET 2024 summer school). It walks through:
 
 1. **Data exploration**: the public [Top Quark Tagging Reference Dataset](https://zenodo.org/records/2603256), jet constituents, and physics-motivated observables (jet mass, multiplicity, ⟨p_T⟩).
 2. **A baseline classifier**: logistic regression on two high-level features, with accuracy, ROC/AUC, confusion matrices and decision boundaries.
