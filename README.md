@@ -59,6 +59,7 @@ python scripts/train_pretrained.py
 | `download_data.sh` | Resumable download of the full dataset from Zenodo (for local runs) |
 | `scripts/make_reduced_dataset.py` | Builds the reduced (half / quarter) dataset copies hosted on Google Drive |
 | `scripts/train_pretrained.py` | Re-trains the pre-trained network by running the notebook |
+| `figures/`, `scripts/make_figures.py` | Schematic figures used in the notebook, and the script that draws them |
 
 ## License
 
